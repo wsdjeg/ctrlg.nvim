@@ -13,14 +13,18 @@ return {
 
     local file = vim.fn.fnamemodify(vim.fn.expand('%'), ':.')
 
+    local messages = {}
+
     if #project_name > 0 then
-      vim.api.nvim_echo({ { project_name, 'Constant' }, { '  >>  ', 'WarningMsg' } }, false, {})
+      vim.list_extend(messages, { { project_name, 'Constant' }, { '  >>  ', 'WarningMsg' } }, 1, 2)
     end
 
-    vim.api.nvim_echo(
+    vim.list_extend(
+      messages,
       { { pwd, 'Special' }, { '  >>  ', 'WarningMsg' }, { file, 'Directory' } },
-      false,
-      {}
+      1,
+      3
     )
+    vim.api.nvim_echo(messages, false, {})
   end,
 }
