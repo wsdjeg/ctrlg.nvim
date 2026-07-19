@@ -1,0 +1,10 @@
+# Test dependencies
+test/.deps/
+
+# Temporary files
+*.swp
+*.swo
+*~
+*.out
+*.lua~
+
